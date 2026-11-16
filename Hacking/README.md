@@ -2,4 +2,4 @@
 
 ### Network:
 
-- [[Network/faa-groundstop-lab/README.md]]
+- [Ground STOP FAA (FTI)](Network/faa-groundstop-lab/README.md)
