@@ -1,0 +1,131 @@
+Building configuration...
+[OK]
+R-CORE#show int
+R-CORE#show interfaces g0/1
+GigabitEthernet0/1 is administratively down, line protocol is down (disabled)
+  Hardware is CN Gigabit Ethernet, address is 00e0.a395.b38d (bia 00e0.a395.b38d)
+  Description: Reservada Lab 2
+  MTU 1500 bytes, BW 100000 Kbit, DLY 100 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Half Duplex, 100Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00, 
+  Last input 00:00:08, output 00:00:05, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0 (size/max/drops); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue :0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     0 watchdog, 1017 multicast, 0 pause input
+     0 input packets with dribble condition detected
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 3 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+
+R-CORE#
+R-CORE#
+R-CORE#show ru
+R-CORE#show running-config 
+Building configuration...
+
+Current configuration : 1037 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R-CORE
+!
+!
+!
+enable secret 5 $1$mERr$ZIvuLWaqZSN.IGTvVO7VE/
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524305T-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description Enlace a R-EDGE
+ ip address 10.0.0.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Reservada Lab 2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ description Segmento torre - extremo antiguo (cobre :( )
+ ip address 172.16.0.2 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.0.0.1 
+ip route 172.16.0.0 255.255.255.0 10.0.0.1 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CLAB 1 - RECONSTRUCION - NO ES La RED REAL^C
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end

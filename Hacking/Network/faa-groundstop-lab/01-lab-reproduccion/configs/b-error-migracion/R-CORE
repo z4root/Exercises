@@ -1,0 +1,95 @@
+Building configuration...
+
+Current configuration : 1047 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R-CORE
+!
+!
+!
+enable secret 5 $1$mERr$ZIvuLWaqZSN.IGTvVO7VE/
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX15246A4Q-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description Enlace a R-EDGE
+ ip address 10.0.0.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Reservada Lab 2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ description Segmento torre - extremo antiguo (cobre :( )
+ ip address 172.16.0.2 255.255.255.0
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 172.16.0.0 255.255.255.0 10.0.0.1 
+ip route 0.0.0.0 0.0.0.0 10.0.0.1 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CLAB 1 - RECONSTRUCION - NO ES La RED REAL^C
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
