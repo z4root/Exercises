@@ -34,13 +34,11 @@ La causa raiz del incidente real sigue abierta; esto es una hipotesis del mecani
 
 ## Comunicacion con los servidores de Voz y Radar
 
-#### Tower-radar
+#### Tower-radar and Tower-Voz
 
-![Tower radar simulation](../capturas/01-topologia-base-mecanismo/tower-radar.png)
-
-#### Tower-Voz
-
-![Tower voz simulation](../capturas/01-topologia-base-mecanismo/tower-voice.png)
+|                                                                                                       |                                                                                                       |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| <img src="../capturas/01-topologia-base-mecanismo/tower-voice.png" alt="" style="border-radius:10%"/> | <img src="../capturas/01-topologia-base-mecanismo/tower-radar.png" alt="" style="border-radius:10%"/> |
 
 ## Tracert
 
@@ -77,9 +75,9 @@ R-CORE# ip route 172.16.0.0 255.255.255.0 10.0.0.1
 
 ### Try to connect to their Websites :(
 
-![Request Timeout](../capturas/01-topologia-base-mecanismo/web-radar-fail.png)
-
-![Request Timeout](../capturas/01-topologia-base-mecanismo/web-voz-fail.png)
+|                                                                                                        |                                                                                                          |
+| ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| <img src="../capturas/01-topologia-base-mecanismo/web-voz-fail.png" alt="" style="border-radius:10%"/> | <img src="../capturas/01-topologia-base-mecanismo/web-radar-fail.png" alt="" style="border-radius:10%"/> |
 
 ### **Tracert 172.16.0.12**
 
@@ -125,8 +123,9 @@ No necesitamos borrar las rutas estaticas ya que la **ruta conectada** tiene dis
 
 ### **Verificacion**
 
-![packets input](../capturas/01-topologia-base-mecanismo/arreglo-bucle.png)
-![packets input](../capturas/01-topologia-base-mecanismo/arrelgo-ping-trace.png)
+|                                                                                                         |                                                                                                              |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| <img src="../capturas/01-topologia-base-mecanismo/arreglo-bucle.png" alt="" style="border-radius:10%"/> | <img src="../capturas/01-topologia-base-mecanismo/arrelgo-ping-trace.png" alt="" style="border-radius:10%"/> |
 
 **Veamos que el fallo no es la ruta en si, sino que la interfaz del nuevo router no estaba prendida al momento de hacer la migracion:**
 
